@@ -16,6 +16,8 @@ namespace ParaClub
             Plane avion1 = new Plane();
 
 
+            Config.update();
+
             while (true)
             {
                 if (Console.KeyAvailable) // L'utilisateur a pressé une touche
@@ -38,8 +40,9 @@ namespace ParaClub
                 Console.Clear();
                 avion1.draw();
 
+
                 // Temporiser
-                Thread.Sleep(100);
+                Thread.Sleep(30);
             }
 
 

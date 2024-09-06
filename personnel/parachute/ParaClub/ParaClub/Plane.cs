@@ -8,6 +8,9 @@ namespace ParaClub
 {
     internal class Plane
     {
+        public int x;
+        public int y;
+
         private string[] view =
         {
             @" _                         ",
@@ -25,12 +28,22 @@ namespace ParaClub
 
         public void draw()
         {
+            Console.CursorVisible = false;
+
+            int tempY = y;
+
             foreach (var item in view)
             {
-                Console.WriteLine(item);
+                Console.SetCursorPosition(x, ++tempY);
 
+                Console.Write(item);
             }
-            
+            x++;
+            if (x >= Config.SCREEN_HEIGHT)
+            {
+                x=0;
+            }
+
         }
 
 
