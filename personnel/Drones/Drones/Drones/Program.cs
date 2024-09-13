@@ -20,7 +20,8 @@ namespace Drones
 
             List<Building> buildings = new List<Building>
             {
-                {new Building(300, 300, 200, 600) }
+                new Factory(350, 350, 200, 99.9, Color.Black),
+                new Store(400, 300, 200, new List<string> { "Lundi: 8h-18h","Mardi: 8h-18h","Mercredi: 8h-18h" }, Color.Green)
             };
 
             // Démarrage
