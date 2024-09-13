@@ -8,6 +8,7 @@ namespace Drones
         [STAThread]
         static void Main()
         {
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
@@ -17,8 +18,13 @@ namespace Drones
             Drone drone = new Drone("Joe", 100, 100);
             fleet.Add(drone);
 
+            List<Building> buildings = new List<Building>
+            {
+                {new Building(300, 300, 200, 600) }
+            };
+
             // Démarrage
-            Application.Run(new AirSpace(fleet));
+            Application.Run(new AirSpace(fleet, buildings));
         }
     }
 }

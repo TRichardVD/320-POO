@@ -3,7 +3,6 @@
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public partial class Drone
     {
-        private Random alea = new Random();
 
         private int charge = 1000;                     // La charge actuelle de la batterie
         private string name;                           // Un nom
