@@ -23,26 +23,30 @@ namespace ParaClub
 
         public void update()
         {
+            Random rnd = new Random();
 
+            y += rnd.Next(-1, 2);
+            
+
+
+            if (++x >= Config.SCREEN_WIDTH)
+            {
+                x = 0;
+            }
         }
 
         public void draw()
         {
             Console.CursorVisible = false;
-
             int tempY = y;
 
             foreach (var item in view)
             {
-                Console.SetCursorPosition(x, ++tempY);
+                Console.SetCursorPosition(x, tempY++);
 
                 Console.Write(item);
             }
-            x++;
-            if (x >= Config.SCREEN_HEIGHT)
-            {
-                x=0;
-            }
+            
 
         }
 

@@ -8,6 +8,8 @@ namespace ParaClub
 {
     internal class Para
     {
+        
+
         public string name = "";
 
         public Para() 
