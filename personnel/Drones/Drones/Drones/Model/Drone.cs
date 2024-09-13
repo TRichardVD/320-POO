@@ -15,7 +15,7 @@
         public void Update(int interval)
         {
             x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
-            y += alea.Next(-2, 3);                     // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
+            y += helper.rdm(-2, 3);                     // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
             charge--;                                  // Il a dépensé de l'énergie
         }
 
