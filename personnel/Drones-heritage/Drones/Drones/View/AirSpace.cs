@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+
 namespace Drones
 {
     // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
@@ -9,6 +11,8 @@ namespace Drones
         public const int WIDTH = 1200;        // Dimensions of the airspace
         public const int HEIGHT = 600;
 
+        public const byte MAX_LENGTH_OF_FLEET = 10;
+
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
         private List<Drone> fleet;
         private List<Building> Buildings;
@@ -19,13 +23,20 @@ namespace Drones
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building> buildings)
         {
+            if (fleet.Count < MAX_LENGTH_OF_FLEET)
+                this.fleet = fleet;
+            else
+            {
+                throw new ArgumentException($"Le paramètre est trop grand. La limite est de {MAX_LENGTH_OF_FLEET}.", nameof(fleet));
+
+            }
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
             currentContext = BufferedGraphicsManager.Current;
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
-            this.fleet = fleet;
+            
             this.Buildings = buildings;
             
         }

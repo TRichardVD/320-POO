@@ -11,6 +11,8 @@ namespace ParaClub
         public int x;
         public int y;
 
+        const int MAX_Y = Config.SCREEN_HEIGHT/4;
+
         private string[] view =
         {
             @" _",
@@ -23,9 +25,6 @@ namespace ParaClub
 
         public void update()
         {
-            Random rnd = new Random();
-
-            y += rnd.Next(-1, 2);
             
 
 
@@ -38,7 +37,7 @@ namespace ParaClub
         public void draw()
         {
             Console.CursorVisible = false;
-            int tempY = y;
+            int tempY = Math.Abs(y);
 
             foreach (var item in view)
             {
