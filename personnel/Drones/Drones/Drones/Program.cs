@@ -10,6 +10,8 @@ namespace Drones
         [STAThread]
         static void Main()
         {
+
+            
             
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
@@ -34,9 +36,12 @@ namespace Drones
             try
             {   
                 Application.Run(new AirSpace(fleet, buildings));
+                Console.WriteLine($"Test1 avec {fleet.Count} drones : OK");
+                Application.Exit();
             }
             catch (Exception e)
             {
+                Console.WriteLine($"Test1 avec {fleet.Count} drones : FAILED");
                 Console.WriteLine(e);
             }
 
@@ -50,9 +55,12 @@ namespace Drones
             try
             {
                 Application.Run(new AirSpace(fleet, buildings));
+                Console.WriteLine($"Test2 avec {fleet.Count} drones : OK");
+
             }
             catch (Exception e)
             {
+                Console.WriteLine($"Test2 avec {fleet.Count} drones : FAILED");
                 Console.WriteLine(e);
             }
 
@@ -62,11 +70,15 @@ namespace Drones
                 fleet.Add(new Drone("yellow", 40, 10));
                 fleet.Add(new Drone("red", 40, 10));
                 Application.Run(new AirSpace(fleet, buildings));
+                Console.WriteLine($"Test3 avec {fleet.Count} drones : OK");
+
 
             }
             catch (Exception e)
             {
+                Console.WriteLine($"Test3 avec {fleet.Count} drones : FAILED");
                 Console.WriteLine(e);
+                
             }
 
             

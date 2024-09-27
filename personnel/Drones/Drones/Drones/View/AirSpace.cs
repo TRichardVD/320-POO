@@ -23,7 +23,7 @@ namespace Drones
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building> buildings)
         {
-            if (fleet.Count < MAX_LENGTH_OF_FLEET)
+            if (fleet.Count <= MAX_LENGTH_OF_FLEET)
                 this.fleet = fleet;
             else
             {
