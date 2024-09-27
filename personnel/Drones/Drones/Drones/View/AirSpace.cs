@@ -33,14 +33,14 @@ namespace Drones
         public const byte MAX_LENGTH_OF_FLEET = 10;
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
-        private List<Drone> fleet;
-        private List<Building> Buildings;
+        private List<Drone>? fleet;
+        private List<Building>? Buildings;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Building> buildings)
+        public AirSpace(List<Drone> fleet, List<Building>? buildings = null)
         {
             if (fleet.Count <= MAX_LENGTH_OF_FLEET)
                 this.fleet = fleet;
@@ -56,6 +56,7 @@ namespace Drones
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             
+            
             this.Buildings = buildings;
             
         }
@@ -66,36 +67,39 @@ namespace Drones
             airspace.Graphics.Clear(Color.AliceBlue);
 
             // draw drones
+            if (this.fleet != null)
             foreach (Drone drone in fleet)
             {
                 drone.Render(airspace);
             }
 
-            foreach(Building building in Buildings)
-            {
-                switch(building)
+            if (this.Buildings != null)
+                foreach(Building building in Buildings)
                 {
-                    case Store store:
-                        store.Render(airspace);
-                        break;
-                    case Factory factory:
-                        factory.Render(airspace);
-                        break;
-                    default:
-                        building.Render(airspace);
-                        break;
+                    switch(building)
+                    {
+                        case Store store:
+                            store.Render(airspace);
+                            break;
+                        case Factory factory:
+                            factory.Render(airspace);
+                            break;
+                        default:
+                            building.Render(airspace);
+                            break;
+                    }
                 }
-            }
             airspace.Render();
         }
 
         // Calcul du nouvel état après que 'interval' millisecondes se sont écoulées
         private void Update(int interval)
         {
-            foreach (Drone drone in fleet)
-            {
-                drone.Update(interval);
-            }
+            if (fleet != null)
+                foreach (Drone drone in fleet)
+                    {
+                        drone.Update(interval);
+                    }
         }
 
         // Méthode appelée à chaque frame

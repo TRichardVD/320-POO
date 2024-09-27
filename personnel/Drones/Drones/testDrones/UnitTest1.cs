@@ -1,4 +1,5 @@
 using Drones;
+using System.Windows.Forms;
 
 
 namespace testDrones
@@ -97,7 +98,50 @@ namespace testDrones
             // Assert
             Assert.AreEqual(EvacuationState.Free, drone.GetEvacuationState());
         }
+
+        [TestMethod]
+        public void test_nbr_max_drones()
+        {
+            // Arrange
+            List<Drone> fleet = new List<Drone>();
+            bool result = false;
+
+            // Act
+            for (int i = 0; i < AirSpace.MAX_LENGTH_OF_FLEET; i++)
+            {
+                fleet.Add(new(100, 100));
+                try
+                {
+                    Application.Run(new AirSpace(fleet));
+                    result = true;
+                }
+                catch (Exception ex) 
+                { 
+                    Console.WriteLine(ex.ToString());
+                    result = false;
+                    break;
+                }
+            }
+
+            // Assert
+            Assert.IsTrue(result);
+
+            // Act
+            fleet.Add(new(100, 100));
+            try
+            {
+                Application.Run(new AirSpace(fleet));
+                result = true;
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                result = false;
+            }
+
+            // Assert
+            Assert.IsFalse(result);
+        }
     }
-
-
 }

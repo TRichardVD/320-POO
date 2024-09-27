@@ -58,11 +58,12 @@ namespace Drones
             }
         }
 
+        // Constructeur du drone
         public Drone(int X, int Y, string Name = "DroneName")
         {
-            name = Name;
             x = X;
             y = Y;
+            name = Name;
         }
 
         
