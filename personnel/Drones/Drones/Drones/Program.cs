@@ -34,55 +34,13 @@ namespace Drones
             fleet.Add(new Drone(40, 10, "qqun"));
 
             try
-            {   
+            {
                 Application.Run(new AirSpace(fleet, buildings));
-                Console.WriteLine($"Test1 avec {fleet.Count} drones : OK");
-                Application.Exit();
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Test1 avec {fleet.Count} drones : FAILED");
                 Console.WriteLine(e);
             }
-
-
-            fleet.Add(new Drone(40, 10, "blue"));
-            fleet.Add(new Drone(40, 10, "blue"));
-            fleet.Add(new Drone(40, 10, "blue"));
-            fleet.Add(new Drone(40, 10, "Mirorange"));
-            fleet.Add(new Drone(40, 10, "Pierre"));
-
-            try
-            {
-                Application.Run(new AirSpace(fleet, buildings));
-                Console.WriteLine($"Test2 avec {fleet.Count} drones : OK");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Test2 avec {fleet.Count} drones : FAILED");
-                Console.WriteLine(e);
-            }
-
-            try
-            {
-                fleet.Add(new Drone(40, 10, "purple"));
-                fleet.Add(new Drone(40, 10, "yellow"));
-                fleet.Add(new Drone(40, 10, "red"));
-                Application.Run(new AirSpace(fleet, buildings));
-                Console.WriteLine($"Test3 avec {fleet.Count} drones : OK");
-
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Test3 avec {fleet.Count} drones : FAILED");
-                Console.WriteLine(e);
-                
-            }
-
-            
-
         }
     }
 }

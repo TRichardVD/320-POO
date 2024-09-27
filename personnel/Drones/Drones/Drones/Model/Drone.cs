@@ -4,8 +4,8 @@ namespace Drones
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public partial class Drone : IExpellable
     {
-        const int BASE_CHARGE = 1000;
-        const double LOW_BATTERY_LIMIT = 0.2;
+        const int BASE_CHARGE = 1000;                                   // Charge initialisé lors de la création du drone
+        const double LOW_BATTERY_LIMIT = 0.2;                           // A partir de quel proportion de batterie "LowBatterie" est vrai
 
 
 
