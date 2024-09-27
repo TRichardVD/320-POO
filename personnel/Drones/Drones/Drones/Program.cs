@@ -19,7 +19,7 @@ namespace Drones
 
             // Création de la flotte de drones
             List<Drone> fleet= new List<Drone>();
-            Drone drone = new Drone("Joe", 100, 100);
+            Drone drone = new Drone(100, 100, "Joe");
 
             List<Building> buildings = new List<Building>
             {
@@ -28,10 +28,10 @@ namespace Drones
             };
 
             fleet.Add(drone);
-            fleet.Add(new Drone("hello", 20, 40));
-            fleet.Add(new Drone("blue", 40, 10));
-            fleet.Add(new Drone("mmmh", 40, 10));
-            fleet.Add(new Drone("qqun", 40, 10));
+            fleet.Add(new Drone(20, 40, "hello"));
+            fleet.Add(new Drone(40, 10, "blue"));
+            fleet.Add(new Drone(40, 10, "mmmh"));
+            fleet.Add(new Drone(40, 10, "qqun"));
 
             try
             {   
@@ -46,11 +46,11 @@ namespace Drones
             }
 
 
-            fleet.Add(new Drone("blue", 40, 10));
-            fleet.Add(new Drone("blue", 40, 10));
-            fleet.Add(new Drone("blue", 40, 10));
-            fleet.Add(new Drone("Mirorange", 40, 10));
-            fleet.Add(new Drone("Pierre", 40, 10));
+            fleet.Add(new Drone(40, 10, "blue"));
+            fleet.Add(new Drone(40, 10, "blue"));
+            fleet.Add(new Drone(40, 10, "blue"));
+            fleet.Add(new Drone(40, 10, "Mirorange"));
+            fleet.Add(new Drone(40, 10, "Pierre"));
 
             try
             {
@@ -66,9 +66,9 @@ namespace Drones
 
             try
             {
-                fleet.Add(new Drone("purple", 40, 10));
-                fleet.Add(new Drone("yellow", 40, 10));
-                fleet.Add(new Drone("red", 40, 10));
+                fleet.Add(new Drone(40, 10, "purple"));
+                fleet.Add(new Drone(40, 10, "yellow"));
+                fleet.Add(new Drone(40, 10, "red"));
                 Application.Run(new AirSpace(fleet, buildings));
                 Console.WriteLine($"Test3 avec {fleet.Count} drones : OK");
 

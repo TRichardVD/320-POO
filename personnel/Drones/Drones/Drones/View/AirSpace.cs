@@ -2,14 +2,12 @@ using System.Reflection.Metadata;
 
 namespace Drones
 {
-
     public enum EvacuationState
     {
         Free,           // No limits applied
         Evacuating,     // Limits known, moving out of the zone
         Evacuated       // Limits known, out of the zone
     }
-
     public interface IExpellable
     {
         // Signal the limits of the no-fly zone 
