@@ -4,12 +4,12 @@ namespace Drones
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public partial class Drone : IExpellable
     {
-        const int baseCharge = 1000;
-        const double IsLowbattery = 0.2;
+        const int BASE_CHARGE = 1000;
+        const double LOW_BATTERY_LIMIT = 0.2;
 
 
 
-        public int charge { get; set; } = baseCharge ;                // La charge actuelle de la batterie
+        public int charge { get; set; } = BASE_CHARGE ;                // La charge actuelle de la batterie
         private string name;                                            // Un nom
         private int x;                                                  // Position en X depuis la gauche de l'espace aérien
         private int y;                                                  // Position en Y depuis le haut de l'espace aérien
@@ -25,7 +25,7 @@ namespace Drones
             if (charge > 0)
                 charge--;                                  // Il a dépensé de l'énergie
 
-            if (charge <= IsLowbattery*baseCharge)
+            if (charge <= LOW_BATTERY_LIMIT*BASE_CHARGE)
                 this.LowBatterie = true;
         }
 
