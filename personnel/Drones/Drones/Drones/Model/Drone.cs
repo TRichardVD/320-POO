@@ -1,7 +1,8 @@
-﻿namespace Drones
+﻿
+namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
-    public partial class Drone
+    public partial class Drone : IExpellable
     {
         const int baseCharge = 1000;
         const double IsLowbattery = 0.2;
@@ -28,12 +29,29 @@
                 this.LowBatterie = true;
         }
 
+        public bool Evacuate(Rectangle zone)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FreeFlight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EvacuationState GetEvacuationState()
+        {
+            throw new NotImplementedException();
+        }
+
         public Drone(string Name, int X, int Y)
         {
             name = Name;
             x = X;
             y = Y;
         }
+
+        
 
     }
 }

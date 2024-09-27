@@ -2,6 +2,27 @@ using System.Reflection.Metadata;
 
 namespace Drones
 {
+
+    public enum EvacuationState
+    {
+        Free,           // No limits applied
+        Evacuating,     // Limits known, moving out of the zone
+        Evacuated       // Limits known, out of the zone
+    }
+
+    public interface IExpellable
+    {
+        // Signal the limits of the no-fly zone 
+        // Return true if the drone is already outside the zone
+        public bool Evacuate(Rectangle zone);
+
+        // Terminate the no-fly zone
+        public void FreeFlight();
+
+        // Interrogate the drone
+        public EvacuationState GetEvacuationState();
+    }
+
     // La classe AirSpace représente le territoire au dessus duquel les drones peuvent voler
     // Il s'agit d'un formulaire (une fenêtre) qui montre une vue 2D depuis en dessus
     // Il n'y a donc pas de notion d'altitude qui intervient
