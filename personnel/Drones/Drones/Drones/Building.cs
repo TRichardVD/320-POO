@@ -52,6 +52,7 @@ namespace Drones
         public readonly int Id;
         public double PowerConsumption = 0;      // Nbr de KwH/jours de consommation de l'usine
         private List<Box> BoxCreated = new List<Box>();
+        private Dispatch dispatch = new Dispatch();
 
 
         public Factory(int x, int y, int width, double powerConsumption, Color color = default) : base(x, y, width, width, color)
@@ -77,6 +78,8 @@ namespace Drones
                         new Box(Id, Helper.rdm(5, 11), Color.Blue)
                         );
                     Console.WriteLine($"L\'usine {Id} à créé son {BoxCreated.Count} packet de smarties de couleur {BoxCreated.Last<Box>().SmartiesColor} avec l'identifiant {BoxCreated.Last<Box>().id} et de {BoxCreated.Last<Box>().NbrKilos} Kilos!");
+                    dispatch.WarnBox(BoxCreated.Last<Box>());
+                
                 }
                 TimeSpentToCreateABox = 0;
             }

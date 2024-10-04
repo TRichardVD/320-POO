@@ -39,11 +39,10 @@ namespace Drones
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
+
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building>? buildings = null)
         {
-
-            Dispatch dispatch = new Dispatch();
 
             if (fleet.Count <= MAX_LENGTH_OF_FLEET)
                 this.fleet = fleet;
@@ -75,7 +74,7 @@ namespace Drones
             {
                 drone.Render(airspace);
             }
-
+            
             if (this.Buildings != null)
                 foreach(Building building in Buildings)
                 {
