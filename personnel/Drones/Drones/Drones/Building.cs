@@ -39,19 +39,24 @@ namespace Drones
             Color = color;
             _brush = new SolidBrush(color);
 
-            Console.WriteLine($"Caractéristiques de l'objet se nommant {this} : x = {x}, y = {y}, width = {width}, depth = {Depth}, color = {color}");
+            Console.WriteLine($"Caractéristiques de l'objet de type {this} : x = {x}, y = {y}, width = {width}, depth = {Depth}, color = {color}");
         }
     }
 
 
     public class Factory : Building
     {
+        private static int nbrFactory = 0;
+        public readonly int Id;
         public double PowerConsumption = 0;      // Nbr de KwH/jours de consommation de l'usine
         public Factory(int x, int y, int width, double powerConsumption, Color color = default) : base(x, y, width, width, color)
         {
             PowerConsumption = powerConsumption;
 
-            Console.WriteLine($"Caractéristiques de l'objet se nommant {this} : x = {x}, y = {y}, width = {width}, powerConsumption = {PowerConsumption}, color = {color}");
+            Id = nbrFactory++;
+
+            Console.WriteLine($"Caractéristiques de l'objet de type {this} avec l'Id {this.Id} : x = {x}, y = {y}, width = {width}, powerConsumption = {PowerConsumption}, color = {color}");
+            
 
         }
     }
