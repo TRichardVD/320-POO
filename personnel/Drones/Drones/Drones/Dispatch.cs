@@ -16,14 +16,16 @@ namespace Drones
             
         }
 
-        public void RmvBox(Box box)
-        {
-            throw new NotImplementedException();
-        }
-
         public void WarnBox(Box box)
         {
-            throw new NotImplementedException();
+            boxes.Add(box);
         }
+
+        public void RmvBox(Box box)
+        {
+            boxes.Remove(box);
+        }
+
+
     }
 }
