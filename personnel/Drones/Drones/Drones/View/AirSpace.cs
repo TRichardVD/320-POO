@@ -42,6 +42,9 @@ namespace Drones
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building>? buildings = null)
         {
+
+            Dispatch dispatch = new Dispatch();
+
             if (fleet.Count <= MAX_LENGTH_OF_FLEET)
                 this.fleet = fleet;
             else
@@ -115,5 +118,8 @@ namespace Drones
             this.Update(ticker.Interval);
             this.Render();
         }
+        
+
+        
     }
 }
