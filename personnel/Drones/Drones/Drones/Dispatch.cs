@@ -19,6 +19,7 @@ namespace Drones
         public void WarnBox(Box box)
         {
             boxes.Add(box);
+            Console.WriteLine($"Centrale : Receptions du carton n°{box.id}");
         }
 
         public void RmvBox(Box box)
