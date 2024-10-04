@@ -1,4 +1,5 @@
 using Drones;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -142,6 +143,39 @@ namespace testDrones
 
             // Assert
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void test_id_factory()
+        {
+            // Arrange
+            List<Factory> Factorys = new List<Factory>
+            {
+                new Factory(350, 122, 200, 99.9, Color.Black),
+                new Factory(222, 350, 200, 99.9, Color.Black),
+                new Factory(370, 1223, 200, 99.9, Color.Black),
+                new Factory(256, 350, 200, 99.9, Color.Black),
+                new Factory(350, 350, 200, 99.9, Color.Black),
+                new Factory(234, 233, 200, 99.9, Color.Black),
+                new Factory(320, 350, 200, 99.9, Color.Black),
+                new Factory(276, 122, 200, 99.9, Color.Black),
+                new Factory(390, 756, 200, 99.9, Color.Black),
+                new Factory(298, 222, 200, 99.9, Color.Black),
+                new Factory(300, 923, 200, 99.9, Color.Black)
+            };
+
+            // Act
+            List<int> ids = new List<int>();
+            foreach (Factory F in Factorys)
+            {
+                if (!ids.Contains(F.Id))
+                    ids.Add(F.Id);
+
+            // Assert
+                else
+                    Assert.Fail();
+            }
+
         }
     }
 }
