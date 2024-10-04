@@ -46,9 +46,14 @@ namespace Drones
 
     public class Factory : Building
     {
+        const int boxCreationDuration = 50;
+        private int TimeSpentToCreateABox = 0;
         private static int nbrFactory = 0;
         public readonly int Id;
         public double PowerConsumption = 0;      // Nbr de KwH/jours de consommation de l'usine
+        private List<Box> BoxCreated = new List<Box>();
+
+
         public Factory(int x, int y, int width, double powerConsumption, Color color = default) : base(x, y, width, width, color)
         {
             PowerConsumption = powerConsumption;
@@ -59,6 +64,27 @@ namespace Drones
             
 
         }
+
+        public void Update()
+        {
+            if (TimeSpentToCreateABox >= boxCreationDuration)
+            {
+                if (Helper.rdm(1, 10) > 3)
+                {
+                    
+                    // Création d'une nouvelle box
+                    BoxCreated.Add(
+                        new Box(Id, Helper.rdm(5, 11), Color.Blue)
+                        );
+                    Console.WriteLine($"L\'usine {Id} à créé son {BoxCreated.Count} packet de smarties de couleur {BoxCreated.Last<Box>().SmartiesColor} avec l'identifiant {BoxCreated.Last<Box>().id} et de {BoxCreated.Last<Box>().NbrKilos} Kilos!");
+                }
+                TimeSpentToCreateABox = 0;
+            }
+            else
+                ++TimeSpentToCreateABox;
+
+        }
+
     }
 
     public class Store : Building

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    internal class helper
+    internal class Helper
     {
 
         private static Random rdmValue = new Random();

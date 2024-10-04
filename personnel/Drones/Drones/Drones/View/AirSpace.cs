@@ -100,6 +100,13 @@ namespace Drones
                     {
                         drone.Update(interval);
                     }
+        
+            if (Buildings != null)
+                foreach (Factory factory in Buildings.OfType<Factory>())
+                {
+                    factory.Update();
+                }
+        
         }
 
         // Méthode appelée à chaque frame
