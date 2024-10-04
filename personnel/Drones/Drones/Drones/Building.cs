@@ -39,7 +39,7 @@ namespace Drones
             Color = color;
             _brush = new SolidBrush(color);
 
-            Console.WriteLine($"Caractéristiques de l'objet de type {this} : x = {x}, y = {y}, width = {width}, depth = {Depth}, color = {color}");
+            Console.WriteLine($"Caractéristiques de l'objet de type {this} : \n\tx = {x}\n\ty = {y}\n\twidth = {width}\n\tdepth = {Depth}\n\tcolor = {color}");
         }
     }
 
@@ -55,7 +55,7 @@ namespace Drones
 
             Id = nbrFactory++;
 
-            Console.WriteLine($"Caractéristiques de l'objet de type {this} avec l'Id {this.Id} : x = {x}, y = {y}, width = {width}, powerConsumption = {PowerConsumption}, color = {color}");
+            Console.WriteLine($"\tpowerConsumption = {PowerConsumption}\n\tIdentifiant unique = {Id}\n\n");
             
 
         }
@@ -73,7 +73,7 @@ namespace Drones
             foreach (string openingHour in OpeningHours)
             { textOpeningHours += $" {openingHour},"; }
 
-            Console.WriteLine($"\nCaractéristiques de l'objet de type {this} : x = {x}, y = {y}, width = {width}, openingHours = {textOpeningHours}, color = {color}");
+            Console.WriteLine($"\topeningHours = {textOpeningHours}\n\n");
             
         }
 
