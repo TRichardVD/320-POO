@@ -14,7 +14,7 @@ namespace Drones
         public readonly Color SmartiesColor;
         public readonly int IdCreator;
 
-        private int NbrBoxes = 0;
+        static private int NbrBoxes = 0;
 
         public Box(int idCreator, int nbrkilos, Color SmartiesColor) 
         {
